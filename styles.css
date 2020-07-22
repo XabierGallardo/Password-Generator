@@ -1,0 +1,59 @@
+#container {
+	display: flex;
+	flex-direction: column;
+	height: 40vh;
+	width: 100%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
+body, .button {
+	font-family: FreeMono, monospace;
+	font-size: x-large;
+	background: #262626;
+	color: white;
+}
+
+.button:hover /*#generate*/ {
+	cursor: pointer;
+	color: #262626;
+	background: white;
+}
+/*
+#generate:hover {
+	background: #262626;
+	color: white;
+}*/
+
+.button, #password {
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+/* Selectors */
+#selector-numbers, #selector-type {
+	display: flex;
+	justify-content: space-around;
+	width: 40%;
+}
+
+/* Results */
+#results {
+	display: flex;
+	width: 60%;
+	justify-content: space-around;
+}
+
+#generate {
+	width: 30%;
+}
+
+#password {
+	width: 60%;
+	text-align: center;
+}
+
+
