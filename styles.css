@@ -9,23 +9,22 @@
 
 
 
-body, .button {
+body, .button{
 	font-family: FreeMono, monospace;
 	font-size: x-large;
 	background: #262626;
 	color: white;
 }
 
-.button:hover /*#generate*/ {
+.button:hover{
 	cursor: pointer;
+}
+
+.active {
 	color: #262626;
 	background: white;
 }
-/*
-#generate:hover {
-	background: #262626;
-	color: white;
-}*/
+
 
 .button, #password {
 	border: 2px solid white;
@@ -49,6 +48,13 @@ body, .button {
 
 #generate {
 	width: 30%;
+	font-weight: bold;
+}
+
+#generate:active {
+	font-weight: bolder;
+	color: #262626;
+	background: white;
 }
 
 #password {
