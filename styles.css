@@ -1,13 +1,11 @@
 #container {
 	display: flex;
 	flex-direction: column;
-	height: 40vh;
+	height: 35vh;
 	width: 100%;
 	justify-content: space-around;
 	align-items: center;
 }
-
-
 
 body, .button{
 	font-family: FreeMono, monospace;
@@ -29,21 +27,17 @@ body, .button{
 .button, #password {
 	border: 2px solid white;
 	border-radius: 5px;
-	padding: 5px;
+	padding: 10px;
 }
+
+
 
 /* Selectors */
-#selector-numbers, #selector-type {
-	display: flex;
-	justify-content: space-around;
-	width: 40%;
-}
 
-/* Results */
-#results {
+#selector-numbers, #selector-type, #results {
 	display: flex;
-	width: 60%;
-	justify-content: space-around;
+	justify-content: space-between;
+	width: 450px;
 }
 
 #generate {
@@ -63,3 +57,43 @@ body, .button{
 }
 
 
+
+/*Media Queries*/
+
+@media (max-width: 450px) {
+
+	body, .button {
+		font-size: medium;
+	}
+
+	.button, #password {
+		padding: 7px;
+	}
+	
+	#selector-numbers, #selector-type, #results {
+		width: 300px;
+	}
+}
+
+@media (max-width: 300px) {
+
+	#container {
+		align-items: flex-start;
+	}
+
+	body, .button {
+		font-size: small;
+	}
+
+	#selector-numbers, #selector-type, #results {
+		justify-content: initial;
+	}
+
+	.button, #password {
+		padding: 5px;
+	}
+
+	#password {
+		width: 110px;
+	}
+}
