@@ -7,9 +7,9 @@ let button_combined = false;
 
 
 
-//Selector numbers functionality (8 or 12)
+//Length buttons (8 or 12), only one can be true
 $("#button_8").click(function() {
-	//Only one can be true and active in each row
+	//Before activation, check if the other button is active and true 
 	if(button_12 === true ) {
 		button_12 = false;
 		$("#button_12").toggleClass("active");
@@ -28,7 +28,7 @@ $("#button_12").click(function() {
 });
 
 
-//Selector type functionality (numbers, words, combined)
+//Type buttons (numbers, words, combined)
 $("#button_numbers").click(function() {
 	if(button_words === true) {
 		button_words = false;
@@ -88,11 +88,11 @@ function generatePassword() {
 	let numbers = "0123456789".split('');
 	let combined = words.concat(numbers);
 
-	//Create an empty password array
+	//Create an empty password array to fill later
 	let password = [];
 
 
-	//Check which button_number is active	
+	//Check which button_number is active and assign value to "num"	
 	if ($("#button_8").hasClass("active") === true) {
 		num = 8;
 
@@ -100,12 +100,11 @@ function generatePassword() {
 		num = 12;
 
 	} else {
-		//Number error message
-		$("#pasword").html("select a number");
-
+		//Number error message 
+		console.log("Select a number");
 	}
 
-	//Check which button_type is active
+	//Check which button_type is active and assign value to "type"
 	if ($("#button_numbers").hasClass("active") === true) {
 		type = 1;
 
@@ -117,18 +116,28 @@ function generatePassword() {
 
 	} else  {
 		//Type error  message
-		$("#password").html("select a type");
-	
+		console.log("Select a type");
 	}
 
-	//Generate password according to number and type conditionals
-	for(let i = 0; i < num; i++) {
-		switch (type) {
+
+	//Generate password according to num and type values
+	
+	for(let i = 0; i < num; i++) { //Iterate that selected "num" of times
+
+		switch (type) { //Select the desired array based on "type"
+
 			case 1:
 
+				//Generate a random number based on the size of the array
 				random = Math.floor((Math.random() * numbers.length));
+
+				//Select a character located on that random number
 				character = numbers[random];
+
+				//Place that character onto our empty array
 				password.push(character);
+
+				//Print every iteration.. just for fun!
 				console.log(password);
 			
 			break;
@@ -152,11 +161,10 @@ function generatePassword() {
 			break;
 
 			default:
-			//Type error  message
-			$("#password").html("select a type");
+			//Avoid duplicate error messages!
 		}
 	}
 
+	//Print final results
 	$("#password").html(password);	
 }
-

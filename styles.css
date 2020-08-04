@@ -1,3 +1,5 @@
+/* General */
+
 #container {
 	display: flex;
 	flex-direction: column;
@@ -22,7 +24,6 @@ body, .button{
 	color: #262626;
 	background: white;
 }
-
 
 .button, #password {
 	border: 2px solid white;
