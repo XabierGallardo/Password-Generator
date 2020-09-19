@@ -5,8 +5,9 @@ words=(A a B b C c D d E e F f G g H h I i J j K k L l M m N n O o P p Q q R r S
 numbers=(0 1 2 3 4 5 6 7 8 9)
 combined=("${words[@]}" "${numbers[@]}")
 
-# Array to store characters
+# Arrays to store characters and passwords 
 new_character_array=()
+new_password_array=()
 
 
 # Path to dictionary file
@@ -69,23 +70,50 @@ for (( y=0; y<passwords; y++ )); do
 
 		fi
 
-
 	done
+
+	# Once a complete pass is created, turn to string and go to pass array
+	password_length=${#new_character_array[@]}
+
+	if [ $password_length == $characters ]; then
+
+		# Turn each complete pass into a string and remove spaces
+		copy_character_array=(${new_character_array[@]})
+		echo "My copy array: ${copy_character_array[@]}"
+		echo "My copy array length: ${#copy_character_array[@]}"
+		
+		printf -v new_password '%s' "${copy_character_array[@]}"
+		new_password=${new_password:1}
+		new_password_array+=($new_password)
+
+		# new_character_array -> STRING(no spaces) 	STRING -> new_password_array
+		#Finally to avoid duplicates, delete it
+		#unset new_password_array[0]
+	fi
+
+	# Turn each array (password) into a string and remove spaces
+	#printf -v new_password '%s' "${new_character_array[@]}" #should it be new_character_array[y]?
+	#new_password=${new_password:1}
+	#new_password_array+=($new_password)
 
 done
 
+#echo "Total length: ${#new_character_array[@]}"
+#printf '%s\n' "${new_character_array[@]}"
+#echo "${new_character_array[@]}"
 
 
-# Copy array onto an string and remote spaces
-printf -v new_password '%s' "${new_character_array[@]}"
-new_password=${new_password:1}
+# Copy array onto an string and remove spaces
+# printf -v new_password '%s' "${new_character_array[@]}"
+# new_password=${new_password:1}
+# echo $new_password
+
 
 # Print onto screen
-echo $new_password
+echo "My Array: ${new_password_array[*]}"
+echo "Length: ${#new_password_array[*]}"
+printf '%s\n' "${new_password_array[*]}"
 
-
-
-# Must divide each string sequence
 
 # Must add condition to verify if file exists, if not, create it
 # if [ -e "$dictionary" ]; then
