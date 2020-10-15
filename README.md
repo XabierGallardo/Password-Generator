@@ -1,9 +1,11 @@
 # Password-Generator
-A minimalist app to create secure and standardized passwords.
+A minimalist app to create secure and standardized passwords :lock::key:
 
-Select both **lenght** and **type** buttons and click on **Generate** to create a random password.  
+Select both **lenght** and **type** buttons and click on **Generate** to create a random password
 
-<img src="sample.PNG" alt="Web Sample Image">
+<p align="center">
+	<img src="media/sample.PNG" alt="Web Sample Image">
+</p>
 
 # Dictionary creator
 Dictionary creator allows you to create standarized WPA Dictionaries.
