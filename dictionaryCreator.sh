@@ -7,9 +7,11 @@ combined=("${words[@]}" "${numbers[@]}")
 
 # Arrays to store characters and passwords 
 new_character_array=()
+new_password_array=()
 
 # Path to dictionary file
-# dictionary=/Dictionaries/dictionary.txt
+dictionary=dictionaries/dictionary.txt
+
 
 # Prompt to select number of passwords to generate
 read -p "Select number of passwords to create: " passwords
@@ -68,16 +70,18 @@ for (( y=0; y<passwords; y++ )); do
 
 
 	done
+
+
+	# Trim new block of characters, add it to password array and empty array of characters
+	password_block=$(echo ${new_character_array[*]} | tr -d ' ')
+	new_password_array+=($password_block)
+	new_character_array=()
 	
 
 done
 
 
-echo "My collection of passwords: ${new_character_array[*]}"
-#password_collection=$(echo ${new_character_array[*]} | tr -d ' ')
-#echo "Trim: ${password_collection[*]}" 
+echo "Generated passwords:${new_password_array[*]}"
 
-# Must add condition to verify if file exists, if not, create it
- # if [ -e "$dictionary" ]; then
-	#echo $newPass >> test.txt
-# fi
+# Print our new set of passwords onto our dictionary file
+printf '%s\n' ${new_password_array[*]} >> $dictionary

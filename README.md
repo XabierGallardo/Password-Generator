@@ -1,5 +1,5 @@
 # Password-Generator
-A minimalist app to create secure and standardized passwords :lock::key:
+A minimalist JavaScvript app to create secure and standardized passwords :lock::key:
 
 Select both **lenght** and **type** buttons and click on **Generate** to create a random password
 
@@ -8,8 +8,11 @@ Select both **lenght** and **type** buttons and click on **Generate** to create 
 </p>
 
 # Dictionary creator
-Dictionary creator allows you to create standarized WPA Dictionaries.
-You must run this from **Linux Terminal**. 
+Dictionary creator is a Bash script that allows you to create standarized WPA Dictionaries
+
+This tool is also useful to generate dictionaries or text files to crack passwords using wireless attack tools like *aircrack-ng* or *Fern wifi cracker*, both available on **Kali Linux** :dragon:
+
+You must run this from the **Terminal**. 
 - On **Linux** :penguin: 	Use Terminal *Ctrl + Alt + T*
 - On **Windows** :computer: 	Use WSL *Windows Subsystem for Linux*
 - On **Mac** :apple: 	Use Terminal *Command + Space* and type Terminal
