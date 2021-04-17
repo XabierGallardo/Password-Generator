@@ -4,10 +4,10 @@ A minimalist JavaScript app to create secure and standardized passwords :lock::k
 Select both **lenght** and **type** buttons and click on **Generate** to create a random password
 
 <p align="center">
-	<img src="media/sample.PNG" alt="Web Sample Image">
+	<img src="media/sampleJS.png" alt="Sample JavaScript">
 </p>
 
-# Dictionary creator
+# Dictionary Creator
 Dictionary creator is a Bash script that allows you to create standarized WEP/WPA/WPA2 Dictionaries
 
 This tool is also useful to generate dictionary files to crack passwords using wireless attack tools like *aircrack-ng* or *Fern wifi cracker*, both available on **Kali Linux** :dragon:
@@ -23,3 +23,7 @@ sudo chmod +rwx dictionaryCreator.sh
 # To run the script
 ./dictionaryCreator.sh
 ```
+<p align="center">
+	<img src="media/sampleBash.png" alt="Sample Bash">
+</p>
+

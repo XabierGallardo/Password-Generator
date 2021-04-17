@@ -6,8 +6,8 @@ numbers=(0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9)
 combined=("${words[@]}" "${numbers[@]}")
 
 # Arrays to store characters and passwords 
-new_character_array=()
-new_password_array=()
+character_array=()
+password_array=()
 
 # Path to dictionary file
 dictionary=dictionaries/dictionary.txt
@@ -16,11 +16,12 @@ dictionary=dictionaries/dictionary.txt
 # Prompt to select number of passwords to generate
 read -p "Select number of passwords to create: " passwords
 
-# Prompt to select number of characters
+# Prompt to select number of characters for each password
 read -p "Select number of characters: " characters
 
 # Prompt to select type of passwords
 read -p "Type: w words, n numbers or c combined: " selection
+
 
 
 # Loop to generate a sequence of passwords
@@ -40,7 +41,7 @@ for (( y=0; y<passwords; y++ )); do
 			
 			# Create new character based on random location on the array
 			new_character=( ${words[random_character]} )
-			new_character_array+=($new_character)
+			character_array+=($new_character)
 
 		fi
 
@@ -52,7 +53,7 @@ for (( y=0; y<passwords; y++ )); do
 			random_character=$((0 + RANDOM % array_length))
 			
 			new_character=( ${numbers[random_character]} )
-			new_character_array+=($new_character)
+			character_array+=($new_character)
 
 		fi
 
@@ -64,7 +65,7 @@ for (( y=0; y<passwords; y++ )); do
 			random_character=$((0 + RANDOM % array_length))
 			
 			new_character=( ${combined[random_character]} )
-			new_character_array+=($new_character)
+			character_array+=($new_character)
 
 		fi
 
@@ -73,15 +74,22 @@ for (( y=0; y<passwords; y++ )); do
 
 
 	# Trim new block of characters, add it to password array and empty array of characters
-	password_block=$(echo ${new_character_array[*]} | tr -d ' ')
-	new_password_array+=($password_block)
-	new_character_array=()
+	password_block=$(echo ${character_array[*]} | tr -d ' ')
+	password_array+=($password_block)
+	character_array=()
 	
 
 done
 
 
-echo "Generated passwords:${new_password_array[*]}"
 
-# Print our new set of passwords onto our dictionary file
-printf '%s\n' ${new_password_array[*]} >> $dictionary
+echo "Generated passwords: ${password_array[*]}"
+
+# Comment if, fi and rm lines to keep adding new blocks of passwords to the list
+if [ -f $dictionary ]; then
+
+	rm $dictionary
+	# Print our new set of passwords onto our dictionary file
+	printf '%s\n' ${password_array[*]} >> $dictionary
+
+fi
