@@ -13,6 +13,7 @@ password_array=()
 dictionary=dictionaries/dictionary.txt
 
 
+
 # Prompt to select number of passwords to generate
 read -p "Select number of passwords to create: " passwords
 
@@ -85,7 +86,7 @@ done
 
 echo "Generated passwords: ${password_array[*]}"
 
-# Comment if, fi and rm lines to keep adding new blocks of passwords to the list
+# Comment or delete "if", "fi" and "rm" lines to keep adding new blocks of passwords to the list
 if [ -f $dictionary ]; then
 
 	rm $dictionary

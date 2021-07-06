@@ -85,7 +85,7 @@ function generatePassword() {
 
 	//Create arrays with different type characters
 	let words = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz".split('');
-	let numbers = "0123456789".split('');
+	let numbers = "00112233445566778899".split('');
 	let combined = words.concat(numbers);
 
 	//Create an empty password array to fill later

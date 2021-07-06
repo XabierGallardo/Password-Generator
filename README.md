@@ -26,4 +26,3 @@ sudo chmod +rwx dictionaryCreator.sh
 <p align="center">
 	<img src="media/sampleBash.png" alt="Sample Bash">
 </p>
-
